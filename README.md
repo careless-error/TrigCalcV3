@@ -23,3 +23,6 @@ Files:
 - FlashcardFactory.java — runs the flashcard quiz loop
 - Flashcard.java — holds one trig flashcard (function + angle + value)
 - PiCleaner.java — converts strings like 3pi/4 into radians, finds reference angle, applies correct sign
+
+License:
+MIT — do what you want, just don’t pretend you wrote it.
