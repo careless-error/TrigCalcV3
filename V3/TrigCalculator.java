@@ -16,6 +16,7 @@
  * + calculateTrig(): void
  * -----------------------------------------
 */
+import java.util.Scanner;
 
 public class TrigCalculator
 {
