@@ -1,12 +1,25 @@
 /**
+ * -----------------------------------------
  * PiCleaner
+ * -----------------------------------------
  * 
  * Parses and analyzes user-entered trig input like "2pi/3" or "π/4".
  * Converts strings to radian values, finds reference angles, 
  * and applies correct trig signs based on quadrant.
  * 
  * Author: Jeff Peterson
- */
+ * 
+ * -----------------------------------------
+ * UML CLASS DIAGRAM:
+ * -----------------------------------------
+ * + parse(String input): double
+ * + getReferenceAngle(double rad): double
+ * + applySign(String func, double rad, String value): String
+ * -----------------------------------------
+ * - eval(String expr): double
+ * -----------------------------------------
+*/
+
 public class PiCleaner
 {
     /**

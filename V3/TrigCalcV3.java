@@ -24,6 +24,7 @@
 *   IMPORTED PACKAGES NEEDED AND PURPOSE:
 *   Scanner - used for console input
 *********************************************/
+
 import java.util.Scanner;
 
 public class TrigCalcV3 {

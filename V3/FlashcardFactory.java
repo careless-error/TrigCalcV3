@@ -1,20 +1,20 @@
 /**
+ * -----------------------------------------
  * FlashcardFactory
- *
+ * -----------------------------------------
+ * 
  * Runs the flashcard quiz portion of the trig tool.
  * Randomly selects a trig function and angle, then quizzes the user
  * on the exact trig value. Tracks score and offers multiple attempts.
  * 
  * Author: Jeff Peterson
- */
-
-/* UML CLASS DIAGRAM:
------------------------------------------
-FlashcardFactory
------------------------------------------
-+ getRandomFlashcard()
-+ runFlashcard()
------------------------------------------
+ * 
+ * -----------------------------------------
+ * UML CLASS DIAGRAM:
+ * -----------------------------------------
+ * + getRandomFlashcard()
+ * + runFlashcard()
+ * -----------------------------------------
 */
 
 import java.util.Scanner;

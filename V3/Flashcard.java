@@ -1,4 +1,8 @@
 /**
+ * -----------------------------------------
+ * Flashcard
+ * -----------------------------------------
+ * 
  * Holds data for a single flashcard used 
  * in the unit circle quiz.
  * 
@@ -8,33 +12,31 @@
  * Used to compare answers and display
  * results during the flashcard quiz.
  * 
- * @author Jeff Peterson
- */
-
-/* UML CLASS DIAGRAM:
------------------------------------------
-Flashcard
------------------------------------------
-- trigFunction: String
-- radian: String
-- exactValue: String
------------------------------------------
-+ Flashcard()
-+ Flashcard(String func, String radian, String exactValue)
-+ Flashcard(Flashcard other)
-
-+ void setAll(String, String, String)
-+ void setTrigFunction(String)
-+ void setRadian(String)
-+ void setExactValue(String)
-
-+ String getTrigFunction()
-+ String getRadian()
-+ String getExactValue()
-
-+ String toString()
-+ boolean equals(Flashcard)
------------------------------------------
+ * Author: Jeff Peterson
+ * 
+ * -----------------------------------------
+ * UML CLASS DIAGRAM:
+ * -----------------------------------------
+ * - trigFunction: String
+ * - radian: String
+ * - exactValue: String
+ * -----------------------------------------
+ * + Flashcard()
+ * + Flashcard(String func, String radian, String exactValue)
+ * + Flashcard(Flashcard other)
+ * 
+ * + void setAll(String, String, String)
+ * + void setTrigFunction(String)
+ * + void setRadian(String)
+ * + void setExactValue(String)
+ * 
+ * + String getTrigFunction()
+ * + String getRadian()
+ * + String getExactValue()
+ * 
+ * + String toString()
+ * + boolean equals(Flashcard)
+ * -----------------------------------------
 */
 
 public class Flashcard

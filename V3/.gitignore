@@ -6,4 +6,5 @@
 *.swp
 
 # Ignore macOS system files (optional)
-.DS_Store
+.Ds_Store
+**/.DS_Store

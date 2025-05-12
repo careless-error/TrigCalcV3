@@ -1,5 +1,7 @@
 /**
+ * -----------------------------------------
  * TrigCalculator
+ * -----------------------------------------
  * 
  * Trig calculator tool for exact and decimal values.
  * Accepts any radian input — if it's a special angle,
@@ -7,9 +9,13 @@
  * Handles inputs like "π/4", "2pi/3", and negative or co-terminal angles.
  * 
  * Author: Jeff Peterson
- */
-
-import java.util.Scanner;
+ * 
+ * -----------------------------------------
+ * UML CLASS DIAGRAM:
+ * -----------------------------------------
+ * + calculateTrig(): void
+ * -----------------------------------------
+*/
 
 public class TrigCalculator
 {
