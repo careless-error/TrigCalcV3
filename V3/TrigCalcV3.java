@@ -114,10 +114,9 @@ public static int getChoice(Scanner input)
         if (input.hasNextInt()) 
         {
             choice = input.nextInt();
-            input.nextLine(); // clear buffer
-
         } 
-        
+
+        input.nextLine(); // clear buffer
     }
     return choice;
 }
