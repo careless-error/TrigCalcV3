@@ -10,7 +10,7 @@
  * Author: Jeff Peterson
  * 
  * -----------------------------------------
- * UML CLASS DIAGRAM:
+ * UML CLASS DIAGRAM
  * -----------------------------------------
  * + getRandomFlashcard()
  * + runFlashcard()
@@ -30,45 +30,45 @@ public class FlashcardFactory
     public static void runFlashcard()
     {
         Scanner input = new Scanner(System.in);
-        boolean keepPlaying = true;
+        boolean keepGoing = true;
         int correctCount = 0;
         int totalCount = 0;
 
         // Welcome banner
-        System.out.println("\n\n===============================");
-        System.out.printf("%21s%n", "Memorize Your");
-        System.out.printf("%20s%n", "Unit Circle");
-        System.out.println("===============================");
+        System.out.println("\n                    ╔═══════════════════════════╗");
+        System.out.println("                    ║ Memorize Your Unit Circle ║");
+        System.out.println("                    ╚═══════════════════════════╝");
 
         // Loop through questions until user quits or returns to menu
-        while (keepPlaying) 
+        while (keepGoing) 
         {
             // Generate random flashcard (function, angle, exact value)
             Flashcard correct = getRandomFlashcard();
 
             // Ask the question
-            System.out.println("\n  What is the " + correct.getTrigFunction() + " of " + correct.getRadian() + "?");
-            System.out.println("\n----------------------------------------------------------------------");
+            System.out.println("\n    What is " + correct.getTrigFunction() + "(" + correct.getRadian() + ")?");
+            System.out.println("══════════════════════════════════════════════════════════════════════");
+                
 
             // Show options 1–7 from Cosine row
             for (int i = 1; i <= 7; i++) 
             {
                 System.out.printf("%2d. %-6s", i, TrigCalcV3.EXACT_VALUES[1][i]);
             }
-            System.out.println();
-
+            System.out.println("\n");
+            
             // Show options 8–14 from Tangent row
             for (int i = 1; i <= 7; i++) 
             {
                 System.out.printf("%2d. %-6s", i + 7, TrigCalcV3.EXACT_VALUES[2][i]);
             }
-            System.out.println("\n----------------------------------------------------------------------\n");
+            System.out.println("\n══════════════════════════════════════════════════════════════════════");
 
             // Get a valid user input (must be 1–14)
             int userChoice = -1;
             while (userChoice < 1 || userChoice > 14) 
             {
-                System.out.print("Enter the number of your answer (1–14): ");
+                System.out.print("Select your answer (1–14): ");
                 if (input.hasNextInt()) 
                 {
                     userChoice = input.nextInt();
@@ -84,37 +84,42 @@ public class FlashcardFactory
             String userValue;
             if (userChoice <= 7) 
             {
-                userValue = TrigCalcV3.EXACT_VALUES[1][userChoice - 1]; // Cosine
+                userValue = TrigCalcV3.EXACT_VALUES[1][userChoice]; // Cosine
             } 
             else 
             {
-                userValue = TrigCalcV3.EXACT_VALUES[2][userChoice - 8]; // Tangent
+                userValue = TrigCalcV3.EXACT_VALUES[2][userChoice - 7]; // Tangent
             }
 
             // Build the user's flashcard and check correctness
             Flashcard userCard = new Flashcard(correct.getTrigFunction(), correct.getRadian(), userValue);
             totalCount++;
+            
+            System.out.println();
+            System.out.println("    You chose: " + userCard);
+            System.out.println();
 
             // Give feedback
             if (userCard.equals(correct)) 
             {
                 correctCount++;
-                System.out.println("\n       ✨ Correct!✨");
+                System.out.println("                            ✨ Correct!✨");
             } 
             else 
             {
-                System.out.println("\n 👎  Do Better 👎");
+                System.out.println("                           👎  Do Better 👎");
             }
 
             // Show the right answer
-            System.out.println("---------------------------");
-            System.out.println();
-            System.out.println("   " + correct.getTrigFunction() + " of " + correct.getRadian() + " = " + correct.getExactValue());
-            System.out.println();
-            System.out.println("---------------------------\n");
+            System.out.println("                    ╔═══════════════════════════╗");
+            System.out.println("                    ║                           ║");
+            System.out.printf("                    ║%5s%-18s%4s║%n", "", correct, "");
+            System.out.println("                    ║                           ║");
+            System.out.println("                    ╚═══════════════════════════╝");
 
             // Score so far
-            System.out.println("Score: " + correctCount + " out of " + totalCount);
+            System.out.println("                          Score: " + correctCount + " out of " + totalCount);
+            System.out.println("\n══════════════════════════════════════════════════════════════════════");
 
             // Ask what to do next
             String choice = "";
@@ -122,7 +127,7 @@ public class FlashcardFactory
                    !choice.equalsIgnoreCase("m") && 
                    !choice.equalsIgnoreCase("q")) 
             {
-                System.out.print("\nGo again (g), return to menu (m), or quit (q): ");
+                System.out.print("Go again (g), return to menu (m), or quit (q): ");
                 choice = input.nextLine();
             }
 
@@ -132,10 +137,10 @@ public class FlashcardFactory
                 System.exit(0);
             } 
             else if (choice.equalsIgnoreCase("m")) {
-                keepPlaying = false;
+                keepGoing = false;
             }
 
-            if (keepPlaying) {
+            if (keepGoing) {
                 System.out.println(); // spacer before next question
             }
         }

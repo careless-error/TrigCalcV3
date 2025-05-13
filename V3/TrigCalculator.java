@@ -11,7 +11,7 @@
  * Author: Jeff Peterson
  * 
  * -----------------------------------------
- * UML CLASS DIAGRAM:
+ * UML CLASS DIAGRAM
  * -----------------------------------------
  * + calculateTrig(): void
  * -----------------------------------------
@@ -19,7 +19,6 @@
 import java.util.Scanner;
 
 public class TrigCalculator
-
 {
     /**
      * Main calculator loop.
@@ -33,10 +32,10 @@ public class TrigCalculator
         boolean keepGoing = true;
 
         // Header
-        System.out.println("\n===============================");
-        System.out.printf("%21s%n", "Trig Calculator");
-        System.out.printf("%22s%n", "Exact or Decimal");
-        System.out.println("===============================\n");
+        System.out.println("\n                   ╔═══════════════════════════════╗");
+        System.out.println("                   ║        Trig Calculator        ║");
+        System.out.println("                   ║Returns exact or approx. values║");
+        System.out.println("                   ╚═══════════════════════════════╝");
 
         while (keepGoing)
         {
@@ -44,10 +43,10 @@ public class TrigCalculator
             int funcChoice = 0;
             while (funcChoice < 1 || funcChoice > 3) 
             {
-                System.out.println("1. Sine");
-                System.out.println("2. Cosine");
-                System.out.println("3. Tangent");
-                System.out.print("\nSelect a function (1–3): ");
+                System.out.println("\n                      1. Sine");
+                System.out.println("                      2. Cosine");
+                System.out.println("                      3. Tangent");
+                System.out.print("\n                     Select a function (1–3): ");
                 if (input.hasNextInt()) 
                 {
                     funcChoice = input.nextInt();
@@ -62,9 +61,11 @@ public class TrigCalculator
             String func = TrigCalcV3.TRIG_FUNCTIONS[funcChoice - 1];
 
             // Ask for angle in radians — supports pi notation and decimals
-            System.out.print("\nEnter a radian value (number or string like pi/4): ");
-            String raw = input.nextLine().replaceAll("\\s", "").toLowerCase();
-            double original = PiCleaner.parse(raw);  // user’s actual input
+           System.out.print("\nEnter a radian value (i.e -3.7, pi/2, 15π/4): ");
+            // Read user input, remove spaces, lowercase it, and replace "pi" with the π symbol for clean display
+            String raw = input.nextLine().replaceAll("\\s", "").toLowerCase().replace("pi", "π");
+            // parse the cleaned input string from PiCleaner into a radian value (in double form)
+            double original = PiCleaner.parse(raw);  
 
             if (original == -999) 
             {
@@ -95,12 +96,12 @@ public class TrigCalculator
             }
 
             // Show the result
-            System.out.println("\n---------------------------");
+              System.out.println("══════════════════════════════════════════════════════════════════════\n");
             if (isSpecial) 
             {
                 // Apply the correct sign based on quadrant + trig function
                 exact = PiCleaner.applySign(func, rad, exact);
-                System.out.println(func + " of " + raw + " = " + exact);
+                System.out.printf("                        %s(%s) = %s%n", func, raw, exact);
             } 
             else 
             {
@@ -119,26 +120,32 @@ public class TrigCalculator
                         break;
                 }
 
-                System.out.println(func + " of " + raw + " = " + decimal + " (approx.)");
+                System.out.printf("                        %s(%s) = %.3f (approx.)%n", func, raw, decimal);
             }
-            System.out.println("---------------------------");
+            System.out.println();
+            System.out.println("══════════════════════════════════════════════════════════════════════");
 
             // Ask what to do next
-            String choice = "";
+             String choice = "";
             while (!choice.equalsIgnoreCase("g") && 
                    !choice.equalsIgnoreCase("m") && 
                    !choice.equalsIgnoreCase("q")) 
             {
-                System.out.print("\nGo again (g), return to menu (m), or quit (q): ");
+                System.out.print("Go again (g), return to menu (m), or quit (q): ");
                 choice = input.nextLine();
             }
 
+            // Handle menu choice
             if (choice.equalsIgnoreCase("q")) {
                 System.out.println("\nGoodbye!");
                 System.exit(0);
             } 
             else if (choice.equalsIgnoreCase("m")) {
                 keepGoing = false;
+            }
+
+            if (keepGoing) {
+                System.out.println(); // spacer before next question
             }
         }
     }

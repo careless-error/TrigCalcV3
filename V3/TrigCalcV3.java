@@ -1,9 +1,13 @@
 /********************************************
 *   TrigCalcV3
 *********************************************
+*   AUTHORS:    Jeff Peterson
+*   COLLABORATORS: None
+*   LAST MODIFIED:  05/13/2025
+********************************************
 *   PROGRAM DESCRIPTION:
-*   Main class for trig program.
-*   Allows the user to choose between a trig calculator
+*   Main class for program.
+*   Allows the user to choose between a calculator
 *   and a unit circle quiz.
 *********************************************
 *   ALGORITHM:
@@ -11,7 +15,7 @@
 *   Create Scanner for input  
 *   LOOP mainMenu:
 *     1 TrigCalculator.calculateTrig()
-*     2 Flashcard.runFlashcard()
+*     2 FlashcardFactory.runFlashcard()
 *     3 Quit
 *     else -> Show error
 *********************************************
@@ -32,7 +36,7 @@ public class TrigCalcV3 {
     /***** CONSTANT ARRAYS *****/
     
     /** Names of trig functions used in the program. */
-    public static final String[] TRIG_FUNCTIONS = {"Sine", "Cosine", "Tangent"};
+    public static final String[] TRIG_FUNCTIONS = {"sin", "cos", "tan"};
 
     /** Radian values used for reference in calculations and flashcards. */
     public static final String[] RADIANS = 
@@ -48,7 +52,7 @@ public class TrigCalcV3 {
     {
         {"0", "1/2", "√2/2", "√3/2", "1", "√3/2", "√2/2", "1/2", "0"},       // Sine
         {"1", "√3/2", "√2/2", "1/2", "0", "-1/2", "-√2/2", "-√3/2", "-1"},   // Cosine
-        {"0", "√3/3", "1", "√3", "undef", "-√3", "-1", "-√3/3", "0"}         // Tangent
+        {"0", "√3/3", "1", "√3", "NaN", "-√3", "-1", "-√3/3", "0"}         // Tangent
     };
 
     /***** MAIN METHOD *****/
@@ -59,10 +63,10 @@ public class TrigCalcV3 {
      */
     public static void main(String[] args) 
     {
-        System.out.println("===============================");
-        System.out.printf("%21s%n", "TrigCalc v3");
-        System.out.printf("%23s%n", "Tools for Trig!");
-        System.out.println("===============================");
+        System.out.println("                   ╔═══════════════════════════════╗");
+        System.out.println("                   ║          TrigCalc V3          ║");
+        System.out.println("                   ║        Tools for Trig!        ║");
+        System.out.println("                   ╚═══════════════════════════════╝");
         
         Scanner input = new Scanner(System.in);
 
@@ -85,11 +89,11 @@ public class TrigCalcV3 {
      */
     public static void displayMenu() 
     {
-        System.out.println("\n========== TOOL MENU ==========");
-        System.out.println("1. Calculate a trig value");
-        System.out.println("2. Unit Circle Flashcards");
-        System.out.println("3. Quit");
-        System.out.print("\nEnter your choice (1–3): ");
+        System.out.println("\n                    ══════════ TOOL MENU ══════════");
+        System.out.println("                      1. Trig Function Calculator");
+        System.out.println("                      2. Unit Circle Quiz");
+        System.out.println("                      3. Quit");
+        System.out.print("\n                     Choose a tool:(1–3): ");
     }
 
     /***** GET USER CHOICE *****/
@@ -99,22 +103,26 @@ public class TrigCalcV3 {
      * @param input Scanner used to read input
      * @return the user's choice as an int, or -1 if invalid
      */
-    public static int getChoice(Scanner input) 
+public static int getChoice(Scanner input) 
+{
+    while (true) 
     {
-        int choice = -1;
-
         if (input.hasNextInt()) 
         {
-            choice = input.nextInt();
+            int choice = input.nextInt();
             input.nextLine(); // clear buffer
+
+            if (choice >= 1 && choice <= 3) 
+            {
+                return choice; // valid input
+            }
         } 
         else 
         {
             input.nextLine(); // discard invalid input
         }
-
-        return choice;
     }
+}
 
     /***** HANDLE USER CHOICE *****/
 
@@ -138,7 +146,7 @@ public class TrigCalcV3 {
         } 
         else 
         {
-            System.out.println("Invalid choice. Try again.");
+            System.out.println("\nChoose a tool (1–3): ");
         }
     }
 }

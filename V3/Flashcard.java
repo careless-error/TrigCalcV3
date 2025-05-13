@@ -15,7 +15,7 @@
  * Author: Jeff Peterson
  * 
  * -----------------------------------------
- * UML CLASS DIAGRAM:
+ * UML CLASS DIAGRAM
  * -----------------------------------------
  * - trigFunction: String
  * - radian: String
@@ -126,7 +126,7 @@ public class Flashcard
     /***** toString *****/
     public String toString() 
     {
-        return trigFunction + " of " + radian + " is " + exactValue;
+        return trigFunction + "("+ radian + ")" + " = " + exactValue;
     }
      /***** equals *****/
     public boolean equals(Flashcard other)
