@@ -69,6 +69,7 @@ public class FlashcardFactory
             while (userChoice < 1 || userChoice > 14) 
             {
                 System.out.print("Select your answer (1–14): ");
+
                 if (input.hasNextInt()) 
                 {
                     userChoice = input.nextInt();
@@ -121,8 +122,10 @@ public class FlashcardFactory
             System.out.println("                          Score: " + correctCount + " out of " + totalCount);
             System.out.println("\n══════════════════════════════════════════════════════════════════════");
 
-            // Ask what to do next
+            // Ask what to do next. Keep asking until the user enters "g", "m", or "q"
+
             String choice = "";
+
             while (!choice.equalsIgnoreCase("g") && 
                    !choice.equalsIgnoreCase("m") && 
                    !choice.equalsIgnoreCase("q")) 
@@ -145,6 +148,7 @@ public class FlashcardFactory
             }
         }
     }
+
 
     /**
      * Randomly generates a Flashcard by selecting a trig function and angle.

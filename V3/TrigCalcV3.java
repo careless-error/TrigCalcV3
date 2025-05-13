@@ -109,7 +109,7 @@ public static int getChoice(Scanner input)
 
     while (choice < 1 || choice > 3)
     {
-        System.out.print("\n                     Choose a tool:(1–3): ");
+        System.out.print("                     Choose a tool:(1–3): ");
 
         if (input.hasNextInt()) 
         {

@@ -46,11 +46,11 @@ public class TrigCalculator
 
             //choose function
             int funcChoice = 0;
-            
+
             while (funcChoice < 1 || funcChoice > 3) 
             {
           
-                System.out.print("\n                     Select a function (1–3): ");
+                System.out.print("                     Select a function (1–3): ");
                 if (input.hasNextInt()) 
                 {
                     funcChoice = input.nextInt();

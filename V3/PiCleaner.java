@@ -89,23 +89,29 @@ public class PiCleaner
     {
         boolean negative = false;
 
-        if (func.equalsIgnoreCase("Sine")) { // built-in String method, checks if func matches "Sine" (case-insensitive)
-            if (rad >= Math.PI && rad < 2 * Math.PI) {
+        if (func.equalsIgnoreCase("Sine")) 
+        { // built-in String method, checks if func matches "Sine" (case-insensitive)
+            if (rad >= Math.PI && rad < 2 * Math.PI) 
+            {
                 negative = true; // Sine is negative in Q3 and Q4
             }
         } 
-        else if (func.equalsIgnoreCase("Cosine")) {
-            if (rad >= Math.PI / 2 && rad < 3 * Math.PI / 2) {
+        else if (func.equalsIgnoreCase("Cosine")) 
+        {
+            if (rad >= Math.PI / 2 && rad < 3 * Math.PI / 2) 
+            {
                 negative = true; // Cosine is negative in Q2 and Q3
             }
         } 
-        else if (func.equalsIgnoreCase("Tangent")) {
+        else if (func.equalsIgnoreCase("Tangent")) 
+        {
             if ((rad > Math.PI / 2 && rad < Math.PI) || (rad > 3 * Math.PI / 2 && rad < 2 * Math.PI)) {
                 negative = true; // Tangent is negative in Q2 and Q4
             }
         }
 
-        if (negative && !value.equals("0") && !value.equals("undef")) {
+        if (negative && !value.equals("0") && !value.equals("undef")) 
+        {
             return "-" + value; // only apply sign to meaningful values
         }
 
@@ -119,16 +125,20 @@ public class PiCleaner
      */
     public static double getReferenceAngle(double rad)
     {
-        if (rad <= Math.PI / 2) {
+        if (rad <= Math.PI / 2) 
+        {
             return rad; // Quadrant I
         } 
-        else if (rad <= Math.PI) {
+        else if (rad <= Math.PI) 
+        {
             return Math.PI - rad; // Quadrant II
         } 
-        else if (rad <= 3 * Math.PI / 2) {
+        else if (rad <= 3 * Math.PI / 2) 
+        {
             return rad - Math.PI; // Quadrant III
         } 
-        else {
+        else 
+        {
             return 2 * Math.PI - rad; // Quadrant IV
         }
     }
