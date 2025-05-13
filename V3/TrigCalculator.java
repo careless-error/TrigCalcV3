@@ -19,6 +19,7 @@
 import java.util.Scanner;
 
 public class TrigCalculator
+
 {
     /**
      * Main calculator loop.
