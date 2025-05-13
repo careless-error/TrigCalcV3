@@ -93,7 +93,7 @@ public class TrigCalcV3 {
         System.out.println("                      1. Trig Function Calculator");
         System.out.println("                      2. Unit Circle Quiz");
         System.out.println("                      3. Quit");
-        System.out.print("\n                     Choose a tool:(1–3): ");
+        
     }
 
     /***** GET USER CHOICE *****/
@@ -105,23 +105,21 @@ public class TrigCalcV3 {
      */
 public static int getChoice(Scanner input) 
 {
-    while (true) 
+    int choice = 0;
+
+    while (choice < 1 || choice > 3)
     {
+        System.out.print("\n                     Choose a tool:(1–3): ");
+
         if (input.hasNextInt()) 
         {
-            int choice = input.nextInt();
+            choice = input.nextInt();
             input.nextLine(); // clear buffer
 
-            if (choice >= 1 && choice <= 3) 
-            {
-                return choice; // valid input
-            }
         } 
-        else 
-        {
-            input.nextLine(); // discard invalid input
-        }
+        
     }
+    return choice;
 }
 
     /***** HANDLE USER CHOICE *****/

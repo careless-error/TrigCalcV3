@@ -39,13 +39,17 @@ public class TrigCalculator
 
         while (keepGoing)
         {
+
+            System.out.println("\n                      1. Sine");
+            System.out.println("                      2. Cosine");
+            System.out.println("                      3. Tangent");
+
             //choose function
             int funcChoice = 0;
+            
             while (funcChoice < 1 || funcChoice > 3) 
             {
-                System.out.println("\n                      1. Sine");
-                System.out.println("                      2. Cosine");
-                System.out.println("                      3. Tangent");
+          
                 System.out.print("\n                     Select a function (1–3): ");
                 if (input.hasNextInt()) 
                 {
@@ -62,8 +66,10 @@ public class TrigCalculator
 
             // Ask for angle in radians — supports pi notation and decimals
            System.out.print("\nEnter a radian value (i.e -3.7, pi/2, 15π/4): ");
+
             // Read user input, remove spaces, lowercase it, and replace "pi" with the π symbol for clean display
             String raw = input.nextLine().replaceAll("\\s", "").toLowerCase().replace("pi", "π");
+
             // parse the cleaned input string from PiCleaner into a radian value (in double form)
             double original = PiCleaner.parse(raw);  
 
@@ -125,7 +131,7 @@ public class TrigCalculator
             System.out.println();
             System.out.println("══════════════════════════════════════════════════════════════════════");
 
-            // Ask what to do next
+            // Ask what to do next. Keep asking until the user enters "g", "m", or "q"
              String choice = "";
             while (!choice.equalsIgnoreCase("g") && 
                    !choice.equalsIgnoreCase("m") && 
